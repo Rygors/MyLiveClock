@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class MyClock {
+  public static void main(String[]args) {
+    String i = "yeah";
+    do {
+      int hTime = Calendar.getInstance().get(Calendar.HOUR);
+      int mTime = Calendar.getInstance().get(Calendar.MINUTE);
+      int sTime = Calendar.getInstance().get(Calendar.SECOND);
+      if (hTime == 0) {
+        hTime = 12;
+      }
+      if (sTime < 10 || mTime < 10 || hTime < 10) {
+        String sTimeNew = String.format("%02d", sTime);
+        String mTimeNew = String.format("%02d", mTime);
+        String hTimeNew = String.format("%02d", hTime);
+        System.out.println(hTimeNew + ":" + mTimeNew + ":" + sTimeNew);
+      }
+      else {
+        System.out.println(hTime + ":" + mTime + ":" + sTime);
+      }
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    } while (i.equals("yeah") );
+  }
+}
